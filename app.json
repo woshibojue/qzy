@@ -16,7 +16,7 @@
     "color": "#000000",
     "selectedColor": "#d81e06",
     "backgroundColor": "#f0f0f0",
-    "position": "bottom",
+    "position": "bottom",   
     "borderStyle": "black",
     "list": [
       {
