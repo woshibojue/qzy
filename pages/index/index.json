@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {"SearchInput":"../../components/SearchInput/SearchInput"
+    },
+  "navigationBarTitleText": "沁滋源首页"
 }

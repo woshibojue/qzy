@@ -1,0 +1,70 @@
+<view class="title top">宝贝详情</view>
+<view class="detail top ">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01hWS6mw1CUyJuOT7fQ_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01FFOS5l1CUyJsoys93_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01GaB0n71CUyJvHlLAB_!!2210072440085.jpg"></image>
+</view>
+<!--  -->
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01RUvhbN1CUyJldoD5t_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01EcBbSm1CUyJrfkd57_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01PCRGZi1CUyJsp1gnC_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01MWfoM41CUyJvHl0N4_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01m6191V1CUyJuOVGkk_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01ZYRZwF1CUyJpDZTvW_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01YDPDRV1CUyJpDZ0pL_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01wGmALk1CUyJpekMFF_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN017coILp1CUyJqazWQX_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01DCC5vP1CUyJuOWsYJ_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01qnBfje1CUyJnQqa06_!!2210072440085.jpg"></image>
+</view>
+<view class="detail">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01M3if5E1CUyJrfm2Q0_!!2210072440085.jpg"></image>
+</view>
+<view class="dd2">
+    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01I6npBH1CUyJuOVXQQ_!!2210072440085.jpg"></image>
+</view>
+<!-- 底部工具栏 -->
+<view class="toolbar">
+    <view class="toolitem">
+        <view class="iconfont icon-kefu"></view>
+        <view>客服</view>
+        <button open-type="contact"></button>
+    </view>
+    <view class="toolitem">
+        <view class="iconfont icon-fenxiang1"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <!-- 跳转至tabbar navigator 需要open-type="switchTab" -->
+    <navigator url="/pages/cart/index" open-type="switchTab" class="toolitem">
+        <view class="iconfont icon-che"></view>
+        <view>购物车</view>
+    </navigator>
+    <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>
+    <view class="toolitem btn_buy">立即购买</view>
+</view>

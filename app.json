@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/cart/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/search/index",
+    "pages/goods_detail/index"
 
     
   ],
@@ -40,6 +42,10 @@
       }
     ]
   },
+  
+   
+  
   "style": "v2",
   "sitemapLocation": "sitemap.json"
+  
 }

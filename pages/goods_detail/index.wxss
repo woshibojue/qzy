@@ -1,0 +1,73 @@
+page {
+  background-color: #f4f4f4;
+  padding-bottom: 110rpx;
+}
+.title {
+  text-align: center;
+  color: #555555;
+  font-size: 20rpx;
+  background-color: #f4f4f4;
+}
+.top {
+  margin-top: 10rpx;
+}
+.detail {
+  height: 750rpx;
+}
+.detail image {
+  width: 750rpx;
+}
+.dd2 {
+  height: 66rpx;
+}
+.dd2 image {
+  width: 100%;
+}
+.toolbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 110rpx;
+  background-color: #fff;
+  display: flex;
+}
+.toolbar .toolitem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  position: relative;
+}
+.toolbar .toolitem button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.toolbar .btn_car {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffa500;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.toolbar .btn_buy {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eb4450;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
