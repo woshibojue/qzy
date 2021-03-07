@@ -42,7 +42,10 @@
       }
     ]
   },
-  
+  "useExtendedLib": {
+    "kbone": true,
+    "weui": true
+  },
    
   
   "style": "v2",
