@@ -1,9 +1,6 @@
 {
-  "usingComponents": {"SearchInput":"../../components/SearchInput/SearchInput",
-    "mp-dialog": "weui-miniprogram/dialog/dialog",
-    "mp-cells": "weui-miniprogram/cells/cells",
-    "mp-cell": "weui-miniprogram/cell/cell",
-    "mp-badge": "weui-miniprogram/badge/badge"
+  "usingComponents": {"SearchInput":"../../components/SearchInput/SearchInput"
+    
     },
   "navigationBarTitleText": "沁滋源首页"
 }
