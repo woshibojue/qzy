@@ -1,5 +1,5 @@
 <view class="title top">宝贝详情</view>
-<view class="detail top ">
+<view class="detail ">
     <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01hWS6mw1CUyJuOT7fQ_!!2210072440085.jpg"></image>
 </view>
 <view class="detail">
@@ -45,7 +45,7 @@
 <view class="detail">
     <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01M3if5E1CUyJrfm2Q0_!!2210072440085.jpg"></image>
 </view>
-<view class="dd2">
+<view class="detail">
     <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01I6npBH1CUyJuOVXQQ_!!2210072440085.jpg"></image>
 </view>
 <!-- 底部工具栏 -->
