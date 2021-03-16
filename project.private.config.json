@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -20,6 +21,12 @@
         {
           "name": "首页",
           "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/search/index",
+          "pathName": "pages/search/index",
           "scene": null
         }
       ]
