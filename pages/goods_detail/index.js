@@ -1,3 +1,5 @@
+import { database } from "../../asny/database.js";
+
 // pages/goods_detail/index.js
 Page({
   /**
@@ -12,16 +14,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.cloud
-      .database()
-      .collection("goodsdetail")
-      .get()
-      .then((res) => {
-        console.log("成功" + res.data);
-      })
-      .cath((err) => {
-        console.log("失败" + err);
-      });
+    //获取goodsdetail表的数据
+    this.getdatabase("goodsdetail");
+  },
+  async getdatabase(e) {
+    let { data } = await database(e);
+    // let a = data[0].image000;
+    // console.log(data.image000);
+    // console.log(a);
+    this.setData({
+      goodsdetial: data[0].image000,
+    });
   },
 
   /**
