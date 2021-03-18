@@ -14,16 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取goodsdetail表的数据
-    this.getdatabase("goodsdetail");
+    //获取goodsdetail表的_id为drftq数据
+    this.getdatabase("goodsdetail", "drftq");
   },
-  async getdatabase(e) {
-    let { data } = await database(e);
+  async getdatabase(e, v) {
+    let { data } = await database(e, v);
     // let a = data[0].image000;
     // console.log(data.image000);
     // console.log(a);
     this.setData({
-      goodsdetial: data[0].image000,
+      goodsdetial: data.image000,
     });
   },
 

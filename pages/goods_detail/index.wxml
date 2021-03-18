@@ -1,6 +1,6 @@
 <view class="title top">宝贝详情</view>
-<view class="detail ">
-    <image mode="widthFix" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01hWS6mw1CUyJuOT7fQ_!!2210072440085.jpg"></image>
+<view class="detail " wx:for="{{goodsdetial}}" wx:key="*this">
+    <image mode="widthFix" src="{{item}}"></image>
 </view>
 <!-- 底部工具栏 -->
 <view class="toolbar">
