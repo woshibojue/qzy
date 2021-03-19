@@ -1,7 +1,28 @@
+page {
+  background-color: #f7f7f7;
+}
 .index_swiper swiper {
   width: 750rpx;
   height: 750rpx;
 }
 .index_swiper swiper image {
   width: 100%;
+}
+.cctitle {
+  text-align: left;
+  padding: 15rpx;
+  font-size: 36rpx;
+  margin: 20rpx 0;
+}
+.good_list {
+  overflow: hidden;
+  margin: 20rpx;
+}
+.good_list .content {
+  background-color: #fff;
+  float: left;
+  width: 49%;
+  margin-left: 1%;
+  margin-bottom: 2%;
+  padding: 20rpx;
 }

@@ -42,3 +42,48 @@
     </swiper>
 </view>
 <!--  -->
+<view class="cctitle">产品列表|</view>
+<view class="good_list">
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view>
+</view>

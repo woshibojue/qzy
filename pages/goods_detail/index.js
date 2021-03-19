@@ -19,9 +19,6 @@ Page({
   },
   async getdatabase(e, v) {
     let { data } = await database(e, v);
-    // let a = data[0].image000;
-    // console.log(data.image000);
-    // console.log(a);
     this.setData({
       goodsdetial: data.image000,
     });
