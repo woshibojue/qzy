@@ -14,15 +14,41 @@ page {
   font-size: 36rpx;
   margin: 20rpx 0;
 }
+.cctitle .wen1 {
+  color: #ccc;
+}
+.cctitle .wen {
+  font-size: 26rpx;
+  text-align: left;
+  color: #ccc;
+}
 .good_list {
   overflow: hidden;
   margin: 20rpx;
 }
 .good_list .content {
+  border-radius: 15rpx;
   background-color: #fff;
   float: left;
   width: 49%;
   margin-left: 1%;
   margin-bottom: 2%;
   padding: 20rpx;
+}
+.good_list .content .good_content .good_image {
+  border-radius: 5rpx;
+}
+.good_list .content .good_content .title {
+  padding-top: 5rpx;
+  color: #333333;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.good_list .content .good_content .price {
+  padding: 10rpx 0 0 0;
+  color: var(--themeColorqq);
+  font-size: 36rpx;
+  font-weight: 450;
 }

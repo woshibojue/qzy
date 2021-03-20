@@ -21,12 +21,22 @@ page {
   // color: var(--themeColorqq);
 
   margin: 20rpx 0;
+  .wen1 {
+    color: #ccc;
+  }
+  .wen {
+    font-size: 26rpx;
+    text-align: left;
+
+    color: #ccc;
+  }
 }
 
 .good_list {
   overflow: hidden;
   margin: 20rpx;
   .content {
+    border-radius: 15rpx;
     background-color: #fff;
     float: left;
     width: 49%;
@@ -35,13 +45,33 @@ page {
     padding: 20rpx;
 
     .good_content {
+      // //使子元素成伸缩盒子
+      // display: flex;
+      // //   盒子排列方式为上下,主轴方向变为上下
+      // flex-direction: column;
+      // // 绕主轴环绕 项目位于各行之前、之间、之后都留有空白的容器内。
+      // justify-content: space-around;
       .good_image {
+        border-radius: 5rpx;
       }
 
       .title {
+        padding-top: 5rpx;
+        color: #333333;
+        display: -webkit-box;
+        //消除溢出的元素
+        overflow: hidden;
+        // 由上至下排列子元素
+        -webkit-box-orient: vertical;
+        // 用来限制在一个块元素显示的文本的行数
+        -webkit-line-clamp: 2;
       }
 
       .price {
+        padding: 10rpx 0 0 0;
+        color: var(--themeColorqq);
+        font-size: 36rpx;
+        font-weight: 450;
       }
     }
   }
