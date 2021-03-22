@@ -28,21 +28,14 @@
     <text class="wen">热卖爆款 好货低价</text>
 </view>
 <view class="good_list">
-    <view class="content">
-        <navigator class="good_content" url="">
-            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
-            <view class="title">佛跳墙</view>
-            <view class="price">￥1000</view>
+    <view class="content" wx:for="{{goodslist}}" wx:key="id">
+        <navigator class="good_content" url="/pages/goods_detail/index?goodsid={{item.id}}">
+            <image class="good_image" src="{{item.image}}" mode="widthFix"></image>
+            <view class="title">{{item.title}}</view>
+            <view class="price">￥{{item.price}}</view>
         </navigator>
     </view>
-    <view class="content">
-        <navigator class="good_content" url="">
-            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
-            <view class="title">标题标题标题标题</view>
-            <view class="price">￥1000</view>
-        </navigator>
-    </view>
-    <view class="content">
+    <!-- <view class="content">
         <navigator class="good_content" url="">
             <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
             <view class="title">标题标题标题标题</view>
@@ -70,4 +63,11 @@
             <view class="price">￥1000</view>
         </navigator>
     </view>
+    <view class="content">
+        <navigator class="good_content" url="">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01dOzPJT1CUyK02CIgV_!!2210072440085.jpg" mode="widthFix"></image>
+            <view class="title">标题标题标题标题</view>
+            <view class="price">￥1000</view>
+        </navigator>
+    </view> -->
 </view>
