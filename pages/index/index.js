@@ -3,7 +3,36 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    //轮播图数组
+    swipergoods: [
+      {
+        id: "zpftq",
+        image:
+          "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01bSRBGj1CUyK1ZneWs_!!2210072440085.jpg",
+      },
+      {
+        id: "drftq",
+        image:
+          "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01cJfacO1CUyK0USVbe_!!2210072440085.png",
+      },
+      {
+        id: "qzymby",
+        image:
+          "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01UIu7n81CUyJuPOaOz_!!2210072440085.png",
+      },
+      {
+        id: "xnhj",
+        image:
+          "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01oDfSQ91CUyJttFy9H_!!2210072440085.png",
+      },
+      {
+        id: "bzby",
+        image:
+          "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01MHJ8d01CUyJohXzIK_!!2210072440085.png",
+      },
+    ],
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -14,29 +14,9 @@
     widthFix 让图片的标签宽高 和 图片标签的内容的宽高都等比例的发生变化 -->
 <view class="index_swiper">
     <swiper indicator-dots autoplay circular>
-        <swiper-item>
-            <navigator class="" target="" url="/pages/goods_detail/index" hover-class="navigator-hover" open-type="navigate">
-                <image mode="widthFix" src="https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01bSRBGj1CUyK1ZneWs_!!2210072440085.jpg" />
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
-                <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01cJfacO1CUyK0USVbe_!!2210072440085.png" />
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
-                <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01UIu7n81CUyJuPOaOz_!!2210072440085.png" />
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
-                <image mode="widthFix" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01oDfSQ91CUyJttFy9H_!!2210072440085.png" />
-            </navigator>
-        </swiper-item>
-        <swiper-item>
-            <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
-                <image mode="widthFix" src="https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01MHJ8d01CUyJohXzIK_!!2210072440085.png" />
+        <swiper-item wx:for="{{swipergoods}}" wx:key="id">
+            <navigator class="" target="" url="/pages/goods_detail/index?goodsid={{item.id}}" hover-class="navigator-hover" open-type="navigate">
+                <image mode="widthFix" src="{{item.image}}" />
             </navigator>
         </swiper-item>
     </swiper>
