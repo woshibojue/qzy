@@ -70,3 +70,6 @@ page {
   font-size: 30rpx;
   font-weight: 600;
 }
+page-container .a {
+  height: 100%;
+}

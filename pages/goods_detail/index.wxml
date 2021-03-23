@@ -22,3 +22,7 @@
     <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>
     <view class="toolitem btn_buy">立即购买</view>
 </view>
+<!-- 底部加入购物车上弹小窗口 -->
+<page-container show="{{show}}" round="true" overlay="true" duration="300" position="bottom" close-on-slide-down="{{false}}" custom-style="{{customStyle}}" overlay-style="background-color: rgba(0, 0, 0, 0.7); filter: blur(4px);">
+    <view class="a"></view>
+</page-container>

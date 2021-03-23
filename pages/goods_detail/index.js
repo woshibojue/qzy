@@ -158,52 +158,46 @@ Page({
   data: {
     //接受商品详情页链接
     goodsdetial: [],
+    //底部上谈窗口标签属性
+    show: false,
+
+    customStyle: " height: 50%;",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.goodsid == "bzby") {
-      this.setData({
-        goodsdetial: this.bzby,
-      });
+    let a;
+    switch (options.goodsid) {
+      case "bzby":
+        a = this.bzby;
+        break;
+      case "xnhj":
+        a = this.xnhj;
+        break;
+      case "zpftq":
+        a = this.zpftq;
+        break;
+      case "drftq":
+        a = this.drftq;
+        break;
+      case "qzymby":
+        a = this.qzymby;
+        break;
+      case "shsb":
+        a = this.shsb;
+        break;
+      case "hssyp":
+        a = this.hssyp;
+        break;
+      case "jtzlhj":
+        a = this.jtzlhj;
+        break;
     }
-    if (options.goodsid == "xnhj") {
-      this.setData({
-        goodsdetial: this.xnhj,
-      });
-    }
-    if (options.goodsid == "zpftq") {
-      this.setData({
-        goodsdetial: this.zpftq,
-      });
-    }
-    if (options.goodsid == "drftq") {
-      this.setData({
-        goodsdetial: this.drftq,
-      });
-    }
-    if (options.goodsid == "qzymby") {
-      this.setData({
-        goodsdetial: this.qzymby,
-      });
-    }
-    if (options.goodsid == "shsb") {
-      this.setData({
-        goodsdetial: this.shsb,
-      });
-    }
-    if (options.goodsid == "hssyp") {
-      this.setData({
-        goodsdetial: this.hssyp,
-      });
-    }
-    if (options.goodsid == "jtzlhj") {
-      this.setData({
-        goodsdetial: this.jtzlhj,
-      });
-    }
+    this.setData({
+      goodsdetial: a,
+    });
     ////获取goodsdetail表的_id为drftq数据
     ////this.getdatabase("goodsdetail", "drftq");
   },
@@ -248,4 +242,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+  //点击加入购物车触发事件
+  //todo  用户是否登录？1是则继续  2否则要求登录
+  //已登录 上弹窗口 选择数目
+  addcat() {
+    this.setData({
+      show: true,
+    });
+  },
 });
