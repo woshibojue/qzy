@@ -159,9 +159,9 @@ Page({
     //接受商品详情页链接
     goodsdetial: [],
     //底部上谈窗口标签属性
-    show: false,
+    // show: false,
 
-    customStyle: " height: 50%;",
+    // customStyle: " height: 50%;",
   },
 
   /**
@@ -245,9 +245,9 @@ Page({
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 上弹窗口 选择数目
-  addcat() {
-    this.setData({
-      show: true,
-    });
-  },
+  // addcat() {
+  //   this.setData({
+  //     show: true,
+  //   });
+  // },
 });
