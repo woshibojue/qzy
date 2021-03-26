@@ -183,6 +183,7 @@ Page({
     let px = (980 / 750) * systemInfo.windowWidth;
 
     this.animation.translateY(-px).step(); //在Y轴偏移tx，单位px
+
     this.setData({
       animationDataSel: that.animation.export(),
       selHidden: false,
