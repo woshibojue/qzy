@@ -178,6 +178,8 @@ Page({
     //显示选项
     let that = this;
     let systemInfo = wx.getSystemInfoSync();
+    console.log("getSystemInfoSync");
+    console.log(systemInfo);
     let px = (980 / 750) * systemInfo.windowWidth;
 
     this.animation.translateY(-px).step(); //在Y轴偏移tx，单位px
