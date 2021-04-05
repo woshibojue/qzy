@@ -12,7 +12,7 @@
             </view>
         </view>
         <view class="sel-box">
-            <view class="sel-list" wx:for="{{key}}" wx:for-item="wrapItem" wx:for-index="wrapIndex" wx:key="wrapkey">
+            <view class="sel-list" wx:for="{{key}}" wx:for-item="wrapItem" wx:for-index="wrapIndex" wx:key="*this">
                 <view class="sel-title">{{wrapItem[0].name}}</view>
                 <view class="type-list">
                     <view class="type-item {{item.state}}" data-state='{{item.state}}' data-trindex='{{wrapIndex}}' data-tdindex='{{index}}' wx:for="{{wrapItem}}" wx:key="key" bindtap="handleClick">

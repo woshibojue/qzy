@@ -1,3 +1,6 @@
+<!-- 模糊的背景 开始 -->
+<view class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
+<!-- 背景结束 -->
 <view class="title top">宝贝详情</view>
 <view class="detail " wx:for="{{goodsdetial}}" wx:key="*this">
     <image mode="widthFix" src="{{item}}"></image>
@@ -22,7 +25,24 @@
     <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>
     <view class="toolitem btn_buy">立即购买</view>
 </view>
-<!-- 底部加入购物车上弹小窗口 -->
-<!-- <page-container show="{{show}}" round="true" overlay="true" duration="600" position="bottom" close-on-slide-down="{{false}}" custom-style="{{customStyle}}" overlay-style="background-color: rgba(0, 0, 0, 0.7); filter: blur(4px);">
-    <view class="a"></view>
-</page-container> -->
+<!-- 上弹的窗口 -->
+<view class="detail-box" animation="{{animationDataSel}}">
+    <view class="good_content">
+        <view class="c_l">
+            <image class="good_image" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01H1PGOH1CUyJpFRcmY_!!2210072440085.jpg" mode="widthFix"></image>
+        </view>
+        <view class="c_r">
+            <view class="price">￥6666</view>
+            <view class="title">顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶</view>
+        </view>
+    </view>
+    <view class="numtool">
+        <view class="numtooltitle">购买数量</view>
+        <view class="tool_r">
+            <view class="control {{plusBan}}" bindtap='plus'>+</view>
+            <view class="control num">55</view>
+            <view class="control {{minusBan}}" bindtap='minus'>-</view>
+        </view>
+    </view>
+    <view class="confirm">加入购物车</view>
+</view>

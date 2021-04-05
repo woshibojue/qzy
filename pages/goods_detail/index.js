@@ -158,10 +158,8 @@ Page({
   data: {
     //接受商品详情页链接
     goodsdetial: [],
-    //底部上谈窗口标签属性
-    // show: false,
-
-    // customStyle: " height: 50%;",
+    animationDataSel: {}, //动态弹出框所需参数
+    selHidden: true, //模态框是否隐藏
   },
 
   /**
@@ -211,7 +209,15 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {},
+  // 初次渲染加载要执行的动画
+  onReady: function () {
+    this.animation = wx.createAnimation({
+      //动画
+      duration: 300, //动画持续时间
+      timingFunction: "linear", //动画的效果 动画从头到尾的速度是相同的
+      transformOrigin: "50% 50% 0",
+    });
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -244,10 +250,64 @@ Page({
   onShareAppMessage: function () {},
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
-  //已登录 上弹窗口 选择数目
-  // addcat() {
-  //   this.setData({
-  //     show: true,
-  //   });
-  // },
+  //已登录 触发上弹窗口动画 选择数目
+  addcat() {
+    //获取数据
+    wx.chooseAddress({
+      success(res) {
+        // 将数据存入缓存中;
+        wx.setStorageSync("address", res);
+        // console.log(res);
+        // console.log(res.userName);
+        // console.log(res.postalCode);
+        // console.log(res.provinceName);
+        // console.log(res.cityName);
+        // console.log(res.countyName);
+        // console.log(res.detailInfo);
+
+        // console.log(address);
+        // console.log(res.nationalCode);
+        // console.log(res.telNumber);
+      },
+    });
+    console.log("AAA");
+    this.showSelBox();
+  },
+  //显示窗口
+  showSelBox: function () {
+    //显示选项
+    let that = this;
+    let systemInfo = wx.getSystemInfoSync();
+    // console.log("getSystemInfoSync");
+    // console.log(systemInfo);
+    //上弹980rpx高度的窗口 通过systemInfo获取窗口大小并转为对应rpx
+    let px = (550 / 750) * systemInfo.windowWidth;
+
+    this.animation.translateY(-px).step(); //在Y轴偏移tx，单位px
+
+    this.setData({
+      //通过绑定的animationDataSel用export()把动画表现出来
+      animationDataSel: that.animation.export(),
+      //模糊背景显示出来
+      selHidden: false,
+    });
+  },
+  // 隐藏窗口
+  hiddenSel: function () {
+    //隐藏选项
+    let that = this;
+    let animation = wx.createAnimation({
+      //动画
+      duration: 300, //动画持续时间
+      timingFunction: "linear", //动画的效果 动画从头到尾的速度是相同的
+      transformOrigin: "50% 50% 0",
+    });
+    let systemInfo = wx.getSystemInfoSync();
+    let px = (550 / 750) * systemInfo.windowWidth;
+    animation.translateY(px).step(); //在Y轴偏移tx，单位px
+    this.setData({
+      animationDataSel: animation.export(),
+      selHidden: true,
+    });
+  },
 });

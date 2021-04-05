@@ -178,8 +178,8 @@ Page({
     //显示选项
     let that = this;
     let systemInfo = wx.getSystemInfoSync();
-    console.log("getSystemInfoSync");
-    console.log(systemInfo);
+    // console.log("getSystemInfoSync");
+    // console.log(systemInfo);
     let px = (980 / 750) * systemInfo.windowWidth;
 
     this.animation.translateY(-px).step(); //在Y轴偏移tx，单位px
@@ -211,10 +211,13 @@ Page({
   // 根据已经选择得属性值，得到余下还能选择的属性值
   filterAttrs: function (ids) {
     var products = this.filterProduct(ids);
+    console.log("products", products);
     var result = [];
     products.forEach(function (v, k) {
       result = result.concat(v["attrs"].split("|"));
     });
+    console.log("result", result);
+
     return result;
   },
   //获取选中的id数组
@@ -235,6 +238,9 @@ Page({
     let state = e.currentTarget.dataset.state;
     let trindex = e.currentTarget.dataset.trindex;
     let tdindex = e.currentTarget.dataset.tdindex;
+    console.log(state);
+    console.log(trindex);
+    console.log(tdindex);
     if (state == "ban") {
       //被锁定
       return;
@@ -272,6 +278,7 @@ Page({
     });
     let select_ids = this.getSelAttrId(); //已选择的ids数组
     let all_ids = this.filterAttrs(select_ids); //已选择包含的所有节点，且有库存
+    console.log("all_ids", all_ids);
     this.setData({
       all_ids,
     });
@@ -351,9 +358,13 @@ Page({
     }
     let aSet = new Set(listTemp);
     let bSet = new Set(list);
+    console.log("aSet", aSet);
+    console.log("bSet", bSet);
     let differenceNew = Array.from(
       new Set(listTemp.concat(list).filter((v) => aSet.has(v) && !bSet.has(v)))
     );
+    console.log("differenceNew", differenceNew);
+
     for (let i = 0; i < differenceNew.length; i++) {
       for (let j = 0; j < this.data.key[differenceNew[i]].length; j++) {
         if (this.data.key[differenceNew[i]][j].state != "sel") {

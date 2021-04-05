@@ -1,6 +1,13 @@
 page {
   background-color: #f4f4f4;
-  padding-bottom: 110rpx;
+  padding-bottom: 140rpx;
+}
+.mark {
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .title {
   text-align: center;
@@ -10,7 +17,6 @@ page {
   margin-top: 5rpx;
   margin-bottom: 5rpx;
 }
-
 .detail {
   image {
     width: 750rpx;
@@ -32,7 +38,10 @@ page {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 110rpx;
+  height: 140rpx;
+  padding-right: 10rpx;
+  padding-left: 10rpx;
+  padding-bottom: 30rpx;
   background-color: #fff;
   display: flex;
   .toolitem {
@@ -66,8 +75,17 @@ page {
     color: #fff;
     font-size: 30rpx;
     font-weight: 600;
+    border-top-left-radius: 40rpx;
+    border-bottom-left-radius: 40rpx;
+
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
   }
   .btn_buy {
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+    border-top-right-radius: 40rpx;
+    border-bottom-right-radius: 40rpx;
     flex: 2;
     display: flex;
     flex-direction: column;
@@ -79,9 +97,107 @@ page {
     font-weight: 600;
   }
 }
+.detail-box {
+  position: fixed;
+  z-index: 10;
+  bottom: -550rpx;
+  height: 550rpx;
+  width: 100%;
+  background-color: #fff;
 
-// page-container {
-//   .a {
-//     height: 100%;
-//   }
-// }
+  .good_content {
+    padding: 5rpx;
+    display: flex;
+    .c_l {
+      width: 30%;
+      padding: 20rpx;
+      .good_image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .c_r {
+      width: 70%;
+      .price {
+        padding-top: 50rpx;
+        padding-left: 15rpx;
+        color: var(--themeColorqq);
+        font-size: 32rpx;
+        font-weight: 600;
+      }
+
+      .title {
+        padding-right: 100rpx;
+        padding-top: 15rpx;
+        padding-left: 15rpx;
+        background-color: #fff;
+        text-align: left;
+        font-size: 26rpx;
+        font-weight: 300;
+        color: #333333;
+        display: -webkit-box;
+        //消除溢出的元素
+        overflow: hidden;
+        // 由上至下排列子元素
+        -webkit-box-orient: vertical;
+        // 用来限制在一个块元素显示的文本的行数
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+  .numtool {
+    height: 52rpx;
+    width: 100%;
+    .numtooltitle {
+      padding-left: 20rpx;
+      float: left;
+      margin-top: 14rpx;
+
+      height: 52rpx;
+
+      text-align: center;
+
+      line-height: 52rpx;
+    }
+    .tool_r {
+      padding-right: 20rpx;
+      .control {
+        margin-top: 14rpx;
+
+        float: right;
+        height: 52rpx;
+        width: 52rpx;
+        background-color: #e3e3e3;
+        text-align: center;
+        line-height: 52rpx;
+        color: #666;
+        font-size: 36rpx;
+        border-radius: 5rpx;
+        margin-left: 4rpx;
+      }
+      .num {
+        width: 100rpx;
+        font-size: 26rpx;
+        background-color: #f0f0f0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+  }
+  .confirm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90rpx;
+    // text-align: center;
+    margin-top: 100rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    border-radius: 40rpx;
+    margin-bottom: 70rpx;
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 600;
+  }
+}
