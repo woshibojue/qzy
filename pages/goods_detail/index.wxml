@@ -1,3 +1,6 @@
+<button type="primary" open-type="getUserInfo" bindgetuserinfo="ongetUserInfo" lang="zh_CN">
+    +
+</button>
 <!-- 模糊的背景 开始 -->
 <view class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
 <!-- 背景结束 -->

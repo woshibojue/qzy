@@ -253,25 +253,33 @@ Page({
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
     //获取数据
-    wx.chooseAddress({
-      success(res) {
-        // 将数据存入缓存中;
-        wx.setStorageSync("address", res);
-        // console.log(res);
-        // console.log(res.userName);
-        // console.log(res.postalCode);
-        // console.log(res.provinceName);
-        // console.log(res.cityName);
-        // console.log(res.countyName);
-        // console.log(res.detailInfo);
+    //
+    // console.log("AAA");
+    // wx.chooseAddress({
+    //   success(res) {
+    //     // 将数据存入缓存中;
+    //     wx.setStorageSync("address", res);
+    //     // console.log(res);
+    //     // console.log(res.userName);
+    //     // console.log(res.postalCode);
+    //     // console.log(res.provinceName);
+    //     // console.log(res.cityName);
+    //     // console.log(res.countyName);
+    //     // console.log(res.detailInfo);
 
-        // console.log(address);
-        // console.log(res.nationalCode);
-        // console.log(res.telNumber);
+    //     // console.log(address);
+    //     // console.log(res.nationalCode);
+    //     // console.log(res.telNumber);
+    //   },
+    // });
+    // console.log("AAA");
+    wx.cloud.callFunction({
+      name: "login",
+      complete: (res) => {
+        console.log("callFunction test result: ", res);
       },
     });
-    console.log("AAA");
-    this.showSelBox();
+    // this.showSelBox();
   },
   //显示窗口
   showSelBox: function () {
@@ -309,5 +317,31 @@ Page({
       animationDataSel: animation.export(),
       selHidden: true,
     });
+  },
+  //登录授权按钮
+  ongetUserInfo: function () {
+    // wx.showLoading({
+    //   title: "登录中...",
+    // });
+    // wx.cloud.callFunction({
+    //   name: "login",
+    //   success: (res) => {
+    //     console.log("[云函数] [login] user openid: ", res.result.openid);
+    //     // app.globalData.openid = res.result.openid;
+    //     // app.globalData.name = e.detail.userInfo.nickName;
+    //     // app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
+    //     //这里执行数据存储到数据库的操作
+    //   },
+    //   fail: (err) => {
+    //     console.error("[云函数] [login] 调用失败", err);
+    //     wx.hideLoading();
+    //     wx.navigateTo({
+    //       url: "../index/index",
+    //     });
+    //   },
+    //   complete: (res) => {
+    //     console.log("callFunction test result: ", res);
+    //   },
+    // });
   },
 });

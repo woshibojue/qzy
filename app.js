@@ -4,6 +4,7 @@ App({
   onLaunch: function (options) {
     wx.cloud.init({
       env: "qzydatabase-1gsasl4927a68f6c", //云开发环境id
+      traceUser: true,
     });
   },
   onShow: function (options) {},

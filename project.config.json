@@ -1,4 +1,5 @@
 {
+  "cloudbaseRoot": "cloud/",
   "description": "项目配置文件",
   "packOptions": {
     "ignore": []
@@ -48,6 +49,7 @@
   },
   "scripts": {},
   "isGameTourist": false,
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
