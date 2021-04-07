@@ -1,5 +1,3 @@
-import { database } from "../../asny/database.js";
-
 // pages/goods_detail/index.js
 Page({
   /**
@@ -160,6 +158,7 @@ Page({
     goodsdetial: [],
     animationDataSel: {}, //动态弹出框所需参数
     selHidden: true, //模态框是否隐藏
+    catr: [], //购物车数组
   },
 
   /**
@@ -353,13 +352,20 @@ Page({
         // hasUserInfo: true,
       },
     });
-    wx.chooseAddress({
-      success: (res) => {
-        console.log(res);
-      },
-      fail: function (err) {
-        console.log(err);
-      },
-    });
+    avatarUrl;
+    country;
+    province;
+    city;
+    gender;
+    language;
+    nickName;
+    // wx.chooseAddress({
+    //   success: (res) => {
+    //     console.log(res);
+    //   },
+    //   fail: function (err) {
+    //     console.log(err);
+    //   },
+    // });
   },
 });
