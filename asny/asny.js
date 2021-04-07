@@ -4,20 +4,14 @@
  */
 export const getStorageSync = ({ key }) => {
   return new Promise((resolve, reject) => {
-    console.log("aaa");
-    console.log(key);
-    wx.getStorageSync({
-      key: key,
-      success: (result) => {
-        // resolve("获取成功", result);
-        console.log(result.data);
+    wx.getStorage({
+      key: "userinfo",
+      success: (res) => {
+        // console.log(res.data);
+        resolve(res.data);
       },
       fail: (err) => {
-        reject("获取失败", err);
-        console.log("key", key);
-      },
-      complete: () => {
-        console.log("key", key);
+        reject(err);
       },
     });
   });

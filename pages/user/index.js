@@ -4,29 +4,23 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: { b: "aaa" },
+  data: { b: "用户缓存" },
   a() {
     wx.setStorageSync("userinfo", this.data.b);
     console.log(this.data.b);
   },
   b() {
-    try {
-      this.togetStorage("userinfo");
-    } catch (e) {
-      console.log("errrr");
-    }
+    this.c("userinfo");
   },
-
+  async c(e) {
+    let res = await getStorageSync({ key: e });
+    console.log("c:", res);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {},
-  async togetStorage(query) {
-    console.log(query);
-    // wx.setStorageSync("key", JSON.stringify("e.detail.userInfo"));
-    const res = await getStorageSync({ key: query });
-    console.log("res");
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
