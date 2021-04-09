@@ -5,8 +5,8 @@ cloud.init();
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  console.log("event", event);
-  console.log("context", context);
+  // console.log("event", event);
+  // console.log("context", context);
   //微信调用上下文
   const wxContext = cloud.getWXContext();
 

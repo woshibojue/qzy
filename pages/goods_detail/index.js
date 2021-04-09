@@ -1,4 +1,6 @@
 // pages/goods_detail/index.js
+import { getStorageSync, getUserProfile } from "../../asny/asny.js";
+
 Page({
   /**
    * 页面的初始数据
@@ -154,8 +156,8 @@ Page({
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01TnfxHc1CUyJqMD4GR_!!2210072440085.jpg",
   ],
   data: {
-    //接受商品详情页链接
-    goodsdetial: [],
+    goodsid: "", //商品id
+    goodsdetial: [], //接受商品详情页链接
     animationDataSel: {}, //动态弹出框所需参数
     selHidden: true, //模态框是否隐藏
     catr: [], //购物车数组
@@ -194,6 +196,7 @@ Page({
     }
     this.setData({
       goodsdetial: a,
+      goodsid: options.goodsid,
     });
     ////获取goodsdetail表的_id为drftq数据
     ////this.getdatabase("goodsdetail", "drftq");
@@ -247,38 +250,39 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+  //asnyc 获取用户会员资料
+  async togetUserProfile() {
+    const res = await getUserProfile();
+    console.log(res);
+  },
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
-    //获取数据
-    //
-    // console.log("AAA");
-    // wx.chooseAddress({
-    //   success(res) {
-    //     // 将数据存入缓存中;
-    //     wx.setStorageSync("address", res);
-    //     // console.log(res);
-    //     // console.log(res.userName);
-    //     // console.log(res.postalCode);
-    //     // console.log(res.provinceName);
-    //     // console.log(res.cityName);
-    //     // console.log(res.countyName);
-    //     // console.log(res.detailInfo);
+    this.togetUserProfile();
 
-    //     // console.log(address);
-    //     // console.log(res.nationalCode);
-    //     // console.log(res.telNumber);
+    // console.log(res.userName);
+    // console.log(res.postalCode);
+    // console.log(res.provinceName);
+    // console.log(res.cityName);
+    // console.log(res.countyName);
+    // console.log(res.detailInfo);
+
     //   },
     // });
     // console.log("AAA");
-    wx.cloud.callFunction({
-      name: "login",
-      complete: (res) => {
-        console.log("callFunction test result: ", res);
-      },
-    });
+    //
     // this.showSelBox();
+  },
+  buyit() {
+    //////////////////
+    // wx.cloud.callFunction({
+    //   name: "login",
+    //   complete: (res) => {
+    //     console.log("callFunction test result: ", res.result.openid);
+    //   },
+    // });
+    ///////////////////
   },
   //显示窗口
   showSelBox: function () {
@@ -346,19 +350,19 @@ Page({
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      lang: "zh_CN",
       success: (res) => {
-        console.log(res.userInfo);
-        // userInfo: res.userInfo,
-        // hasUserInfo: true,
+        // console.log(res.userInfo);
+        // console.log(res.userInfo.avatarUrl);
+        // console.log(res.userInfo.country);
+        // console.log(res.userInfo.province);
+        // console.log(res.userInfo.city);
+        // console.log(res.userInfo.gender);
+        // console.log(res.userInfo.language);
+        // console.log(res.userInfo.nickName);
       },
     });
-    avatarUrl;
-    country;
-    province;
-    city;
-    gender;
-    language;
-    nickName;
+
     // wx.chooseAddress({
     //   success: (res) => {
     //     console.log(res);
