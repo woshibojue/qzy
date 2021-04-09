@@ -1,5 +1,9 @@
 // pages/goods_detail/index.js
-import { getStorageSync, getUserProfile } from "../../asny/asny.js";
+import {
+  getStorageSync,
+  getUserProfile,
+  databaseadd,
+} from "../../asny/asny.js";
 
 Page({
   /**
@@ -253,35 +257,34 @@ Page({
   //asnyc 获取用户会员资料
   async togetUserProfile() {
     const res = await getUserProfile();
-    console.log(res);
+    const data = {
+      avatarUrl: res.avatarUrl,
+      city: res.city,
+      country: res.country,
+      gender: res.gender,
+      language: res.language,
+      nickName: res.nickName,
+      province: res.province,
+      time: new Date(),
+    };
+    await databaseadd({ collection: "userinfo", data });
   },
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
-    this.togetUserProfile();
+    this.togetUserProfile(); //获取授权弹窗 并记录数据
 
-    // console.log(res.userName);
-    // console.log(res.postalCode);
-    // console.log(res.provinceName);
-    // console.log(res.cityName);
-    // console.log(res.countyName);
-    // console.log(res.detailInfo);
-
-    //   },
-    // });
-    // console.log("AAA");
-    //
     // this.showSelBox();
   },
   buyit() {
     //////////////////
-    // wx.cloud.callFunction({
-    //   name: "login",
-    //   complete: (res) => {
-    //     console.log("callFunction test result: ", res.result.openid);
-    //   },
-    // });
+    wx.cloud.callFunction({
+      name: "login",
+      complete: (res) => {
+        console.log("callFunction test result: ", res.result.openid);
+      },
+    });
     ///////////////////
   },
   //显示窗口

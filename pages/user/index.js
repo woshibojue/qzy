@@ -20,7 +20,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    let a = new Date();
+    console.log(a);
+  },
   async togetStorage(query) {
     console.log(query);
     // wx.setStorageSync("key", JSON.stringify("e.detail.userInfo"));

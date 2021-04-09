@@ -36,12 +36,44 @@ export const getUserProfile = () => {
         resolve(res.userInfo);
       },
       fail: (err) => {
+        console.log("授权失败");
         reject(err);
       },
       complete: () => {
-        console.log("promise 形式  wx.getStorage");
+        console.log("promise 形式  getUserProfile");
         console.log("-------");
       },
     });
+  });
+};
+///////////////////////////
+/**
+ *@method wx.cloud.database().collection().add()
+ *@author 作者
+ *@version 版本号
+ *@param {string} collection 数据表
+ *@param {object} data 数据对
+ *@return {类型} 无
+ */
+export const databaseadd = ({ collection, data }) => {
+  return new Promise((resolve, reject) => {
+    wx.cloud
+      .database()
+      .collection(collection)
+      .add({
+        data,
+        success: (res) => {
+          console.log("数据添加成功");
+          resolve(res);
+          console.log(res);
+        },
+        fail: (err) => {
+          reject(err);
+        },
+        complete: () => {
+          console.log("promise 形式  add");
+          console.log("-------");
+        },
+      });
   });
 };
