@@ -4,16 +4,6 @@
  */
 export const getStorageSync = ({ key }) => {
   return new Promise((resolve, reject) => {
-<<<<<<< HEAD
-    wx.getStorage({
-      key: "userinfo",
-      success: (res) => {
-        // console.log(res.data);
-        resolve(res.data);
-      },
-      fail: (err) => {
-        reject(err);
-=======
     wx.getStorageSync({
       key: key,
       success: (result) => {
@@ -26,7 +16,6 @@ export const getStorageSync = ({ key }) => {
         console.log("promise 形式  wx.getStorage");
         console.log("传入参数key:", key);
         console.log("-------");
->>>>>>> 7969b4b72fa8aa6403a286535de250d5218b958e
       },
     });
   });

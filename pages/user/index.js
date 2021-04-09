@@ -92,10 +92,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-<<<<<<< HEAD
+
   onLoad: function (options) {},
 
-=======
   onLoad: function (options) {
     let a = new Date();
     console.log(a);
@@ -106,7 +105,7 @@ Page({
     const res = await getStorageSync({ key: query });
     console.log("res");
   },
->>>>>>> 7969b4b72fa8aa6403a286535de250d5218b958e
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

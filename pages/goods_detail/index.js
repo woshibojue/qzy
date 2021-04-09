@@ -331,29 +331,7 @@ Page({
     wx.getUserProfile({
       desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       lang: "zh_CN",
-      success: (res) => {
-<<<<<<< HEAD
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        console.log(res.userInfo);
-        // userInfo: res.userInfo,
-        // hasUserInfo: true,
-=======
-        // console.log(res.userInfo);
-        // console.log(res.userInfo.avatarUrl);
-        // console.log(res.userInfo.country);
-        // console.log(res.userInfo.province);
-        // console.log(res.userInfo.city);
-        // console.log(res.userInfo.gender);
-        // console.log(res.userInfo.language);
-        // console.log(res.userInfo.nickName);
->>>>>>> 7969b4b72fa8aa6403a286535de250d5218b958e
-      },
+      success: (res) => {},
     });
 
     // wx.chooseAddress({
