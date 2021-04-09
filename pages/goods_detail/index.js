@@ -319,34 +319,18 @@ Page({
   },
   //登录授权按钮
   ongetUserInfo: function (e) {
-    // wx.showLoading({
-    //   title: "登录中...",
-    // });
-    // wx.cloud.callFunction({
-    //   name: "login",
-    //   success: (res) => {
-    //     console.log("[云函数] [login] user openid: ", res.result.openid);
-    //     // app.globalData.openid = res.result.openid;
-    //     // app.globalData.name = e.detail.userInfo.nickName;
-    //     // app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
-    //     //这里执行数据存储到数据库的操作
-    //   },
-    //   fail: (err) => {
-    //     console.error("[云函数] [login] 调用失败", err);
-    //     wx.hideLoading();
-    //     wx.navigateTo({
-    //       url: "../index/index",
-    //     });
-    //   },
-    //   complete: (res) => {
-    //     console.log("callFunction test result: ", res);
-    //   },
-    // });
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
+        console.log(res.userInfo);
+        console.log(res.userInfo);
+        console.log(res.userInfo);
+        console.log(res.userInfo);
+        console.log(res.userInfo);
+        console.log(res.userInfo);
+        console.log(res.userInfo);
         console.log(res.userInfo);
         // userInfo: res.userInfo,
         // hasUserInfo: true,
