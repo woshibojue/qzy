@@ -24,7 +24,7 @@
         <view>购物车</view>
     </navigator>
     <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>
-    <view class="toolitem btn_buy">立即购买</view>
+    <view class="toolitem btn_buy" bindtap="buyit">立即购买</view>
 </view>
 <!-- 上弹的窗口 -->
 <view class="detail-box" animation="{{animationDataSel}}">
