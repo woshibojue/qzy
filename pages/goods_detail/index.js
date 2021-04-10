@@ -1,8 +1,9 @@
 // pages/goods_detail/index.js
 import {
-  getStorageSync,
   getUserProfile,
   databaseadd,
+  callFunction,
+  databasewhere,
 } from "../../asny/asny.js";
 
 Page({
@@ -160,13 +161,13 @@ Page({
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01TnfxHc1CUyJqMD4GR_!!2210072440085.jpg",
   ],
   data: {
-    goodsid: "", //商品id
     goodsdetial: [], //接受商品详情页链接
     animationDataSel: {}, //动态弹出框所需参数
     selHidden: true, //模态框是否隐藏
-    catr: [], //购物车数组
   },
-
+  catr: [], //购物车数组
+  goodsid: "", //商品id
+  userid: 0, //用户是否存在
   /**
    * 生命周期函数--监听页面加载
    */
@@ -200,17 +201,11 @@ Page({
     }
     this.setData({
       goodsdetial: a,
-      goodsid: options.goodsid,
     });
-
-    wx.setStorageSync("userid", "adadadad");
+    this.goodsid = options.goodsid;
+    this.checkid();
+    //wx.setStorageSync("userid", "adadadad");
   },
-  ////async getdatabase(e, v) {
-  ////   let { data } = await database(e, v);
-  ////  this.setData({
-  ////    goodsdetial: data.image000,
-  ////  });
-  ////},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -254,10 +249,42 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
-  //asnyc 获取用户会员资料
+  //1读取缓存2不存在时获取openid并查询是否存在于数据库中
+  //3存在于数据库 存入缓存 4不存在于数据库
+  //参数： 1缓存userid{string} 2查询条件condition{object}
+  async checkid() {
+    let res = wx.getStorageSync("userid"); //读取缓存中的用户
+    if (!res) {
+      //没有id
+      console.log("没有id缓存"); //无缓存则获取 1获取用户id 2查询是否存在数据库
+      //this.checkid();
+      //获取用户id
+      const { openid } = await callFunction("login");
+      console.log("openid", openid);
+      //根据id查询是否存在数据库
+      const condition = { _openid: openid }; //查询条件
+      //查询数据库
+      let { data } = await databasewhere({ collection: "userinfo", condition });
+      console.log("userdata", data);
+      console.log(data.length);
+      if (!data.length) {
+        this.userid = 0;
+        console.log("不存在于数据库");
+      } else {
+        this.userid = 1;
+        console.log("存在于数据库");
+        wx.setStorageSync("userid", data);
+      }
+    } else {
+      this.userid = 1;
+      console.log("userid存在缓存", res);
+    }
+  },
+  //asnyc
   async togetUserProfile() {
-    const res = await getUserProfile();
-    const data = {
+    //如果查无此人
+    const res = await getUserProfile(); //获取用户会员资料
+    const adddata = {
       avatarUrl: res.avatarUrl,
       city: res.city,
       country: res.country,
@@ -267,35 +294,37 @@ Page({
       province: res.province,
       time: new Date(),
     };
-    await databaseadd({ collection: "userinfo", data });
-  },
-  //获取缓存
-  async togetStorageSync(e) {
-    let res = await getStorageSync({ key: e });
-    console.log(res);
+    //存入数据库
+    let { _id } = await databaseadd({ collection: "userinfo", adddata });
+    console.log("_id", _id);
+    const condition = { _id: _id };
+    let { data } = await databasewhere({ collection: "userinfo", condition });
+    console.log(data);
   },
 
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
-    let res = wx.getStorageSync("userid");
-    if (!res) {
-      console.log("没有id缓存");
-      //this.togetUserProfile(); //无缓存则获取 用户id 并弹窗授权 记录入数据
+    if (this.userid) {
+      //已经登陆
+      this.showSelBox();
+    } else {
+      console.log(this.userid);
+      this.togetUserProfile(); //未登录 弹窗获取授权
     }
-    // this.showSelBox();
   },
 
   //购买事件
   buyit() {
     //////////////////
-    wx.cloud.callFunction({
-      name: "login",
-      complete: (res) => {
-        console.log("callFunction test result: ", res.result.openid);
-      },
-    });
+    // wx.cloud.callFunction({
+    //   name: "login",
+    //   complete: (res) => {
+    //     console.log("callFunction test result: ", res.result.openid);
+    //   },
+    // });
+    this.tocallFunction("login");
     ///////////////////
   },
   //显示窗口
@@ -334,24 +363,5 @@ Page({
       animationDataSel: animation.export(),
       selHidden: true,
     });
-  },
-  //登录授权按钮
-  ongetUserInfo: function (e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
-    // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      lang: "zh_CN",
-      success: (res) => {},
-    });
-
-    // wx.chooseAddress({
-    //   success: (res) => {
-    //     console.log(res);
-    //   },
-    //   fail: function (err) {
-    //     console.log(err);
-    //   },
-    // });
   },
 });

@@ -29,17 +29,17 @@ export const getUserProfile = () => {
  *@method wx.cloud.database().collection().add()
  *@author 作者
  *@version 版本号
- *@param {string} collection 数据表
- *@param {object} data 数据对
+ *@param {string} collection 需要操作的数据表
+ *@param {object} data 添加的数据
  *@return {类型} 无
  */
-export const databaseadd = ({ collection, data }) => {
+export const databaseadd = ({ collection, adddata }) => {
   return new Promise((resolve, reject) => {
     wx.cloud
       .database()
       .collection(collection)
       .add({
-        data,
+        data: adddata,
         success: (res) => {
           console.log("数据添加成功");
           resolve(res);
@@ -51,6 +51,59 @@ export const databaseadd = ({ collection, data }) => {
         complete: () => {
           console.log("promise 形式  add");
           console.log("-------");
+        },
+      });
+  });
+};
+///////////////////////////
+/**
+ *@method wx.cloud.callFunction
+ *@param {pamas0} pamas0 调用云函数名
+ *@return {类型} 无
+ */
+export const callFunction = (pamas0) => {
+  return new Promise((resolve, reject) => {
+    wx.cloud.callFunction({
+      // 云函数名称
+      name: pamas0,
+      // 传给云函数的参数
+      // data: {
+      //   a: 1,
+      //   b: 2,
+      // },
+      success: (res) => {
+        console.log("获取id成功");
+        // console.log(res);
+        resolve(res.result);
+      },
+      fail: (err) => {
+        console.log(err);
+        reject(err);
+      },
+    });
+  });
+};
+///////////////////////////
+/**
+ *@method wx.cloud.database.where.get
+ *@param {pamas0} pamas0 调用云函数名
+ *@return {类型} 无
+ */
+export const databasewhere = ({ collection, condition }) => {
+  //console.log("condition", condition);
+  return new Promise((resolve, reject) => {
+    wx.cloud
+      .database()
+      .collection(collection)
+      .where(condition)
+      .get({
+        success: (res) => {
+          console.log("查询成功", res);
+          resolve(res);
+        },
+        fail: (err) => {
+          console.log("查询失败", err);
+          reject(err);
         },
       });
   });
