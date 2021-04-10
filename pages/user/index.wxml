@@ -1,2 +1,1 @@
-<view bindtap="a">appear-active-class</view>
-<view bindtap="b">AAAAAAAAAAAAAAAAAAA</view>
+<button bindtap="aaa">7777</button>

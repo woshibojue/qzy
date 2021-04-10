@@ -283,7 +283,7 @@ Page({
   //asnyc
   async togetUserProfile() {
     //如果查无此人
-    const res = await getUserProfile(); //获取用户会员资料
+    const res = await getUserProfile(); //获取用户会员资料 授权弹窗
     const adddata = {
       avatarUrl: res.avatarUrl,
       city: res.city,
@@ -295,17 +295,18 @@ Page({
       time: new Date(),
     };
     //存入数据库
-    let { _id } = await databaseadd({ collection: "userinfo", adddata });
-    console.log("_id", _id);
-    const condition = { _id: _id };
-    let { data } = await databasewhere({ collection: "userinfo", condition });
-    console.log(data);
+    await databaseadd({ collection: "userinfo", adddata });
+    this.checkid();
   },
 
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
+    /*1查缓存
+      2this 看看数据库有没有  有就存 没有就过
+      3 再次查查缓存
+    */
     if (this.userid) {
       //已经登陆
       this.showSelBox();
