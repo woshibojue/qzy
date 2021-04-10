@@ -18,7 +18,7 @@ Page({
     return e + 8;
   },
   aaa() {
-    let a = b(1);
+    let a = this.b(1);
     console.log(a);
   },
 
