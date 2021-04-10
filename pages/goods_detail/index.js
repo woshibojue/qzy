@@ -202,8 +202,8 @@ Page({
       goodsdetial: a,
       goodsid: options.goodsid,
     });
-    ////获取goodsdetail表的_id为drftq数据
-    ////this.getdatabase("goodsdetail", "drftq");
+
+    wx.setStorageSync("userid", "adadadad");
   },
   ////async getdatabase(e, v) {
   ////   let { data } = await database(e, v);
@@ -269,14 +269,25 @@ Page({
     };
     await databaseadd({ collection: "userinfo", data });
   },
+  //获取缓存
+  async togetStorageSync(e) {
+    let res = await getStorageSync({ key: e });
+    console.log(res);
+  },
+
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   addcat() {
-    this.togetUserProfile(); //获取授权弹窗 并记录数据
-
+    let res = wx.getStorageSync("userid");
+    if (!res) {
+      console.log("没有id缓存");
+      //this.togetUserProfile(); //无缓存则获取 用户id 并弹窗授权 记录入数据
+    }
     // this.showSelBox();
   },
+
+  //购买事件
   buyit() {
     //////////////////
     wx.cloud.callFunction({

@@ -1,25 +1,3 @@
-/**
- *  promise 形式  wx.getStorage
- * @param {object} param0 参数
- */
-export const getStorageSync = ({ key }) => {
-  return new Promise((resolve, reject) => {
-    wx.getStorageSync({
-      key: key,
-      success: (result) => {
-        console.log(result.data);
-      },
-      fail: (err) => {
-        reject(err);
-      },
-      complete: () => {
-        console.log("promise 形式  wx.getStorage");
-        console.log("传入参数key:", key);
-        console.log("-------");
-      },
-    });
-  });
-};
 ///////////////////////////
 /**
  *  promise 形式   wx.getUserProfile

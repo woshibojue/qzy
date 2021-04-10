@@ -95,10 +95,7 @@ Page({
 
   onLoad: function (options) {},
 
-  onLoad: function (options) {
-    let a = new Date();
-    console.log(a);
-  },
+  onLoad: function (options) {},
   async togetStorage(query) {
     console.log(query);
     // wx.setStorageSync("key", JSON.stringify("e.detail.userInfo"));
