@@ -1,4 +1,5 @@
 // pages/user/index.js
+import { checkid } from "../../utils/ut.js";
 
 Page({
   /**
@@ -17,9 +18,10 @@ Page({
   b(e) {
     return e + 8;
   },
-  aaa() {
-    let a = this.b(1);
-    console.log(a);
+  async aaa() {
+    const s = await checkid();
+    console.log("tty", s);
+    console.log("tty", s.PromiseResult);
   },
 
   /**
