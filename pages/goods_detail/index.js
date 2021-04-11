@@ -5,6 +5,7 @@ import {
   callFunction,
   databasewhere,
 } from "../../asny/asny.js";
+import { checkidandgets } from "../../utils/ut.js";
 
 Page({
   /**
@@ -167,11 +168,11 @@ Page({
   },
   catr: [], //购物车数组
   goodsid: "", //商品id
-  userid: 0, //用户是否存在
+  userid: false, //用户是否存在
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let a;
     switch (options.goodsid) {
       case "bzby":
@@ -203,7 +204,8 @@ Page({
       goodsdetial: a,
     });
     this.goodsid = options.goodsid;
-    this.checkid();
+    this.userid = await checkidandgets();
+    //this.checkid();
     //wx.setStorageSync("userid", "adadadad");
   },
 
@@ -252,7 +254,7 @@ Page({
   //1读取缓存2不存在时获取openid并查询是否存在于数据库中
   //3存在于数据库 存入缓存 4不存在于数据库
   //参数： 1缓存userid{string} 2查询条件condition{object}
-  async checkid() {
+  /*async checkid() {
     let res = wx.getStorageSync("userid"); //读取缓存中的用户
     if (!res) {
       //没有id
@@ -279,11 +281,18 @@ Page({
       this.userid = 1;
       console.log("userid存在缓存", res);
     }
-  },
+  },*/
   //asnyc
   async togetUserProfile() {
     //如果查无此人
+
     const res = await getUserProfile(); //获取用户会员资料 授权弹窗
+    /////////
+    wx.showLoading({
+      title: "登录中",
+      mask: true,
+    });
+    //////////
     const adddata = {
       avatarUrl: res.avatarUrl,
       city: res.city,
@@ -296,23 +305,26 @@ Page({
     };
     //存入数据库
     await databaseadd({ collection: "userinfo", adddata });
-    this.checkid();
+    this.userid = await checkidandgets();
+    /////////
+    wx.hideLoading();
   },
 
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
-  addcat() {
+  async addcat() {
     /*1查缓存
       2this 看看数据库有没有  有就存 没有就过
       3 再次查查缓存
     */
     if (this.userid) {
       //已经登陆
+      console.log("this.userid", this.userid);
       this.showSelBox();
     } else {
       console.log(this.userid);
-      this.togetUserProfile(); //未登录 弹窗获取授权
+      await this.togetUserProfile(); //未登录 弹窗获取授权
     }
   },
 
