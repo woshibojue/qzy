@@ -5,7 +5,7 @@ import {
   callFunction,
   databasewhere,
 } from "../../asny/asny.js";
-import { checkidandgets } from "../../utils/ut.js";
+import { checkidandgets, togetUserProfile } from "../../utils/ut.js";
 
 Page({
   /**
@@ -205,8 +205,6 @@ Page({
     });
     this.goodsid = options.goodsid;
     this.userid = await checkidandgets();
-    //this.checkid();
-    //wx.setStorageSync("userid", "adadadad");
   },
 
   /**
@@ -251,64 +249,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
-  //1读取缓存2不存在时获取openid并查询是否存在于数据库中
-  //3存在于数据库 存入缓存 4不存在于数据库
-  //参数： 1缓存userid{string} 2查询条件condition{object}
-  /*async checkid() {
-    let res = wx.getStorageSync("userid"); //读取缓存中的用户
-    if (!res) {
-      //没有id
-      console.log("没有id缓存"); //无缓存则获取 1获取用户id 2查询是否存在数据库
-      //this.checkid();
-      //获取用户id
-      const { openid } = await callFunction("login");
-      console.log("openid", openid);
-      //根据id查询是否存在数据库
-      const condition = { _openid: openid }; //查询条件
-      //查询数据库
-      let { data } = await databasewhere({ collection: "userinfo", condition });
-      console.log("userdata", data);
-      console.log(data.length);
-      if (!data.length) {
-        this.userid = 0;
-        console.log("不存在于数据库");
-      } else {
-        this.userid = 1;
-        console.log("存在于数据库");
-        wx.setStorageSync("userid", data);
-      }
-    } else {
-      this.userid = 1;
-      console.log("userid存在缓存", res);
-    }
-  },*/
-  //asnyc
-  async togetUserProfile() {
-    //如果查无此人
-
-    const res = await getUserProfile(); //获取用户会员资料 授权弹窗
-    /////////
-    wx.showLoading({
-      title: "登录中",
-      mask: true,
-    });
-    //////////
-    const adddata = {
-      avatarUrl: res.avatarUrl,
-      city: res.city,
-      country: res.country,
-      gender: res.gender,
-      language: res.language,
-      nickName: res.nickName,
-      province: res.province,
-      time: new Date(),
-    };
-    //存入数据库
-    await databaseadd({ collection: "userinfo", adddata });
-    this.userid = await checkidandgets();
-    /////////
-    wx.hideLoading();
-  },
 
   //点击加入购物车触发事件
   //todo  用户是否登录？1是则继续  2否则要求登录
@@ -324,7 +264,7 @@ Page({
       this.showSelBox();
     } else {
       console.log(this.userid);
-      await this.togetUserProfile(); //未登录 弹窗获取授权
+      this.userid = await togetUserProfile(); //未登录 弹窗获取授权
     }
   },
 
