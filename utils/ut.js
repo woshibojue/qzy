@@ -1,4 +1,9 @@
-import { callFunction, databasewhere } from "../asny/asny.js";
+import {
+  callFunction,
+  databasewhere,
+  getUserProfile,
+  databaseadd,
+} from "../asny/asny.js";
 /**
  *1读取缓存2不存在时获取openid并查询是否存在于数据库中
  *3存在于数据库 存入缓存
@@ -33,4 +38,33 @@ export const checkidandgets = async () => {
     console.log("userid存在缓存", res);
     return true;
   }
+};
+
+/////////////////////////////
+export const togetUserProfile = async () => {
+  //如果查无此人
+
+  const res = await getUserProfile(); //获取用户会员资料 授权弹窗
+  /////////
+  wx.showLoading({
+    title: "登录中",
+    mask: true,
+  });
+  //////////
+  const adddata = {
+    avatarUrl: res.avatarUrl,
+    city: res.city,
+    country: res.country,
+    gender: res.gender,
+    language: res.language,
+    nickName: res.nickName,
+    province: res.province,
+    time: new Date(),
+  };
+  //存入数据库
+  await databaseadd({ collection: "userinfo", adddata });
+  const userid = await checkidandgets();
+  /////////
+  wx.hideLoading(); //消除加载框
+  return userid;
 };
