@@ -45,5 +45,6 @@
             <view class="control {{minusBan}}" bindtap='minus'>-</view>
         </view>
     </view>
-    <view class="confirm">加入购物车</view>
+    <view class="confirm" wx:if="{{addorbuy}}">加入购物车</view>
+    <view class="confirm" wx:else>立即购买</view>
 </view>

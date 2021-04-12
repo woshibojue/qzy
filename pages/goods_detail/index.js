@@ -254,13 +254,10 @@ Page({
   //todo  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   async addcat() {
-    /*1查缓存
-      2this 看看数据库有没有  有就存 没有就过
-      3 再次查查缓存
-    */
     if (this.userid) {
       //已经登陆
       console.log("this.userid", this.userid);
+      this.setData({ addorbuy: true });
       this.showSelBox();
     } else {
       console.log(this.userid);
@@ -269,7 +266,17 @@ Page({
   },
 
   //购买事件
-  buyit() {},
+  async buyit() {
+    if (this.userid) {
+      //已经登陆
+      console.log("this.userid", this.userid);
+      this.setData({ addorbuy: false });
+      this.showSelBox();
+    } else {
+      console.log(this.userid);
+      this.userid = await togetUserProfile(); //未登录 弹窗获取授权
+    }
+  },
   //显示窗口
   showSelBox: function () {
     //显示选项
