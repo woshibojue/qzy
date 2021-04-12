@@ -269,17 +269,7 @@ Page({
   },
 
   //购买事件
-  buyit() {
-    //////////////////
-    // wx.cloud.callFunction({
-    //   name: "login",
-    //   complete: (res) => {
-    //     console.log("callFunction test result: ", res.result.openid);
-    //   },
-    // });
-    this.tocallFunction("login");
-    ///////////////////
-  },
+  buyit() {},
   //显示窗口
   showSelBox: function () {
     //显示选项
@@ -302,7 +292,6 @@ Page({
   // 隐藏窗口
   hiddenSel: function () {
     //隐藏选项
-    let that = this;
     let animation = wx.createAnimation({
       //动画
       duration: 300, //动画持续时间
