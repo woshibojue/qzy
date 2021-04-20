@@ -1,4 +1,5 @@
 {
-  "usingComponents": {},
+  "usingComponents": {"mp-toptips": "weui-miniprogram/toptips/toptips",
+    "mp-badge": "weui-miniprogram/badge/badge"},
   "navigationBarTitleText": "沁滋源商品详情页"
 }

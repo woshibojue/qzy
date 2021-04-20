@@ -12,6 +12,10 @@ import {
  *@param： 1缓存userid{string} 2查询条件condition{object}
  */
 export const checkidandgets = async () => {
+  wx.showLoading({
+    title: "载入中",
+    mask: true,
+  });
   let res = wx.getStorageSync("userid"); //读取缓存中的用户
   if (!res) {
     //没有id
@@ -28,14 +32,17 @@ export const checkidandgets = async () => {
     console.log(data.length);
     if (!data.length) {
       console.log("不存在于数据库");
+      wx.hideLoading(); //消除加载框
       return false;
     } else {
       console.log("存在于数据库");
       wx.setStorageSync("userid", data);
+      wx.hideLoading(); //消除加载框
       return true;
     }
   } else {
     console.log("userid存在缓存", res);
+    wx.hideLoading(); //消除加载框
     return true;
   }
 };
@@ -67,4 +74,21 @@ export const togetUserProfile = async () => {
   /////////
   wx.hideLoading(); //消除加载框
   return userid;
+};
+
+//设置tabbar购物车位置角标
+export const tabbartsetbadge = () => {
+  let cartNum = 1;
+  if (cartNum != 0) {
+    //设置角标
+    wx.setTabBarBadge({
+      index: 1, //tabBar序号，从0开始计数
+      text: cartNum.toString(),
+    });
+  } else {
+    //移除角标
+    wx.removeTabBarBadge({
+      index: 2,
+    });
+  }
 };

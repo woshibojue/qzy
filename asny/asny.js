@@ -4,6 +4,10 @@
  * 无 参数
  */
 export const getUserProfile = () => {
+  wx.showLoading({
+    title: "授权中",
+    mask: true,
+  });
   return new Promise((resolve, reject) => {
     wx.getUserProfile({
       desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
@@ -16,6 +20,7 @@ export const getUserProfile = () => {
       fail: (err) => {
         console.log("授权失败");
         reject(err);
+        wx.hideLoading(); //消除加载框
       },
       complete: () => {
         console.log("promise 形式  getUserProfile");

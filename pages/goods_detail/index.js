@@ -161,10 +161,111 @@ Page({
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01jc5sgW1CUyJgv2HUH_!!2210072440085.jpg",
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01TnfxHc1CUyJqMD4GR_!!2210072440085.jpg",
   ],
+  bzby2: {
+    name: "鲍汁鲍鱼",
+    title: "沁滋源鲍汁鲍鱼六只装汤汁家宴推荐送礼年货捞饭加热即食",
+    price: 356,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01WwR4PB1CUyJpdnHp4_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01Bs1FwC1CUyJoG7fVS_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01MHJ8d01CUyJohXzIK_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN010PbqsO1CUyJvOdGCG_!!2210072440085.jpg",
+    ],
+  },
+  xnhj2: {
+    name: "香柠花胶",
+    title: "沁滋源香柠花胶加热即食月子滋补富含胶原蛋白包邮新品推荐代餐",
+    price: 82,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01EguUcz1CUyJmwJ7Sp_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01uj22Sj1CUyJqR4EKy_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01Eksh9H1CUyJvCnzgA_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01oDfSQ91CUyJttFy9H_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01o2GQK71CUyJuV7SVp_!!2210072440085.png",
+    ],
+  },
+  zpftq2: {
+    name: "珍品佛跳墙",
+    title: "沁滋源佛跳墙干货加热即食海鲜礼盒海参鲜鲍鱼花胶盆菜年夜饭火锅",
+    price: 556,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN017nn3tv1CUyJlheXNX_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01j4RApH1CUyJnUetRV_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01pd4v8e1CUyJpTdorT_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01MEzhBl1CUyJuSLzxi_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01KETdGt1CUyJrqfRKo_!!2210072440085.jpg",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01MEXVEH1CUyJlhfwki_!!2210072440085.png",
+    ],
+  },
+  drftq2: {
+    name: "单人佛跳墙",
+    title: "沁滋源佛跳墙干货加热即食海鲜礼包参鲍鱼花胶盆菜年夜饭",
+    price: 146,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01acZCvL1CUyJv25K30_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01zvpQSd1CUyK0QQEdg_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN014bcplF1CUyJxw9Jed_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01zh6eRO1CUyK1PtOKV_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01hFaZuh1CUyJyBpMDO_!!2210072440085.png",
+    ],
+  },
+  qzymby2: {
+    name: "茄汁燕麦鲍鱼",
+    title: "沁滋源茄汁燕麦鲍鱼单只装佛跳墙包邮加热即食鲜美低脂高蛋白",
+    price: 68,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01T9BMGk1CUyK3snVbO_!!2210072440085.jpg",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01UIu7n81CUyJuPOaOz_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01Ar8SRC1CUyJpfgpa2_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN016CaqbB1CUyJqLMleI_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01KuAJEm1CUyJleiP1C_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01WPlMLF1CUyJtnRnHI_!!2210072440085.png",
+    ],
+  },
+  shsb2: {
+    name: "深海三宝",
+    title: "沁滋源深海三宝花胶鱼皮海参年夜饭佛跳墙大盆菜原料单品",
+    price: 56,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN0105Veip1CUyJwKNA2k_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01muxRXi1CUyJtrHYFV_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01HJM2Bl1CUyJuIAdUP_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01ffPHin1CUyJtrFwUW_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01WMwv731CUyJtrFsLb_!!2210072440085.png",
+    ],
+  },
+  hssyp2: {
+    name: "红烧深海鱼皮",
+    title: "沁滋源红烧深海鱼皮包邮推荐单人拌饭宴客胶原蛋白加热即食年饭",
+    price: 36,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01BD3zSF1CUyJrf2eoi_!!2210072440085.jpg",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01qCvs631CUyJnQAQ8S_!!2210072440085.jpg",
+      "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01TsAC1y1CUyJpQjsar_!!2210072440085.jpg",
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01rxe5N31CUyJuNrrN7_!!2210072440085.png",
+    ],
+  },
+  jtzlhj2: {
+    name: "金汤杂粮花胶",
+    title: "沁滋源金汤杂粮花胶加热即食鱼胶低脂胶质滋补月子孕妇无添加",
+    price: 78,
+    swiperimage: [
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01CZjQBL1CUyJpFOjqB_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01DoNLjz1CUyJrkMTiP_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01TRTc1y1CUyJuQGEFl_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01ymcOIl1CUyJlfaVnP_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01t2ENMg1CUyJmrNn0z_!!2210072440085.png",
+      "https://img.alicdn.com/imgextra/i3/2210072440085/O1CN019plDtj1CUyJpgb9d7_!!2210072440085.png",
+    ],
+  },
   data: {
     goodsdetial: [], //接受商品详情页链接
     animationDataSel: {}, //动态弹出框所需参数
     selHidden: true, //模态框是否隐藏
+    goodsnum: 1, //要购买商品数量
+    error: "", //错误提示
+    propBan: "ban",
+    goodsinfo: {},
   },
   catr: [], //购物车数组
   goodsid: "", //商品id
@@ -174,39 +275,101 @@ Page({
    */
   onLoad: async function (options) {
     let a;
+    let goodsinfo;
     switch (options.goodsid) {
       case "bzby":
         a = this.bzby;
+        goodsinfo = this.bzby2;
         break;
       case "xnhj":
         a = this.xnhj;
+        goodsinfo = this.xnhj2;
         break;
       case "zpftq":
         a = this.zpftq;
+        goodsinfo = this.zpftq2;
         break;
       case "drftq":
         a = this.drftq;
+        goodsinfo = this.drftq2;
         break;
       case "qzymby":
         a = this.qzymby;
+        goodsinfo = this.qzymby2;
         break;
       case "shsb":
         a = this.shsb;
+        goodsinfo = this.shsb2;
         break;
       case "hssyp":
         a = this.hssyp;
+        goodsinfo = this.hssyp2;
         break;
       case "jtzlhj":
         a = this.jtzlhj;
+        goodsinfo = this.jtzlhj2;
         break;
     }
     this.setData({
       goodsdetial: a,
+      goodsinfo,
     });
     this.goodsid = options.goodsid;
     this.userid = await checkidandgets();
   },
+  aonum(e) {
+    //选择数量
+    const { num } = e.currentTarget.dataset;
+    console.log(num);
+    let goodsnum = this.data.goodsnum + num;
+    //按钮加减样式
+    if (goodsnum <= 1) {
+      this.setData({
+        propBan: "ban",
+        plusBan: "",
+      });
+    } else if (goodsnum >= 999) {
+      this.setData({
+        propBan: "",
+        plusBan: "ban",
+      });
+    } else {
+      this.setData({
+        propBan: "",
+        plusBan: "",
+      });
+    }
+    //警告提示
+    if (goodsnum <= 0) {
+      this.setData({
+        error: "数量应大于0",
+      });
+    } else if (goodsnum > 999) {
+      this.setData({
+        error: "数量不可大于999",
+      });
+    } else {
+      this.setData({
+        goodsnum,
+      });
+    }
+  }, //加减数量
 
+  //轮播点击放大
+  handlpreviewImage(e) {
+    // console.log("aa");
+    //构造要预览的数组 urls
+    const previewImageurl = this.data.goodsinfo.swiperimage.map((v) => v);
+    // console.log(e.currentTarget.dataset.index);
+    // console.log(previewImageurl)
+    // 获取当前显示图片的http链接;
+    const cyrrent = e.currentTarget.dataset.index;
+    console.log(cyrrent);
+    wx.previewImage({
+      current: cyrrent, // 当前显示图片的http链接
+      urls: previewImageurl, // 需要预览的图片http链接列表
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -257,7 +420,7 @@ Page({
     if (this.userid) {
       //已经登陆
       console.log("this.userid", this.userid);
-      this.setData({ addorbuy: true });
+      this.setData({ addorbuy: true }); //显示购买或加入购物车按钮
       this.showSelBox();
     } else {
       console.log(this.userid);
@@ -270,7 +433,7 @@ Page({
     if (this.userid) {
       //已经登陆
       console.log("this.userid", this.userid);
-      this.setData({ addorbuy: false });
+      this.setData({ addorbuy: false }); //显示购买或加入购物车按钮
       this.showSelBox();
     } else {
       console.log(this.userid);

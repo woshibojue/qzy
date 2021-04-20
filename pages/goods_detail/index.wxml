@@ -1,7 +1,60 @@
-<button type="primary" bindtap="ongetUserInfo" lang="zh_CN">+</button>
+<!-- 测试 -->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Badge</view>
+        <view class="page__desc">徽章</view>
+    </view>
+    <view class="page__bd">
+        <mp-cells title="新消息提示跟摘要信息后，统一在列表右侧">
+            <mp-cell title="单行列表" link>
+                <view slot="footer">
+                    <view style="display: inline-block;vertical-align:middle; font-size: 17px;">
+                        详细信息
+                    </view>
+                    <mp-badge style="margin-left: 5px;margin-right: 5px;" ext-class="blue" />
+                </view>
+            </mp-cell>
+        </mp-cells>
+        <mp-cells title="未读数红点跟在主题信息后，统一在列表左侧">
+            <mp-cell>
+                <view slot="title" style="position: relative;margin-right: 10px;">
+                    <image src="../images/pic_160.png" style="width: 50px; height: 50px; display: block" />
+                    <mp-badge content="99+" style="position: absolute;top: -.4em;right: -.4em;" />
+                </view>
+                <view>联系人名称</view>
+                <view style="font-size: 13px;color: #888888;">摘要信息</view>
+            </mp-cell>
+            <mp-cell link>
+                <view style="display: inline-block; vertical-align: middle">单行列表</view>
+                <mp-badge content="8" style="margin-left: 5px;" />
+            </mp-cell>
+            <mp-cell link>
+                <view style="display: inline-block; vertical-align: middle">单行列表</view>
+                <mp-badge style="margin-left: 5px;" content="New" />
+            </mp-cell>
+        </mp-cells>
+    </view>
+</view>
 <!-- 模糊的背景 开始 -->
 <view class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
+<!-- 顶部错误提示栏开始 -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 <!-- 背景结束 -->
+<!-- 轮播图开始 -->
+<view class="goods_swiper">
+    <swiper indicator-dots autoplay circular interval="2000">
+        <swiper-item wx:for="{{goodsinfo.swiperimage}}" wx:key="*this" bindtap="handlpreviewImage" data-index="{{item}}">
+            <image mode="widthFix" src="{{item}}" />
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 轮播图结束 -->
+<!-- 价格 标题 收藏 -->
+<view class="goodsprice">￥{{goodsinfo.price}}</view>
+<view class="titleandfav">
+    <view class="title">{{goodsinfo.title}}</view>
+</view>
+<!-- 价格 标题 收藏 结束 -->
 <view class="title top">宝贝详情</view>
 <view class="detail " wx:for="{{goodsdetial}}" wx:key="*this">
     <image mode="widthFix" src="{{item}}"></image>
@@ -21,7 +74,10 @@
     <!-- 跳转至tabbar navigator 需要open-type="switchTab" -->
     <navigator url="/pages/cart/index" open-type="switchTab" class="toolitem">
         <view class="iconfont icon-che"></view>
-        <view>购物车</view>
+        <view class="c">
+            购物车
+            <mp-badge class="cartbadge" content="8" />
+        </view>
     </navigator>
     <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>
     <view class="toolitem btn_buy" bindtap="buyit">立即购买</view>
@@ -30,19 +86,19 @@
 <view class="detail-box" animation="{{animationDataSel}}">
     <view class="good_content">
         <view class="c_l">
-            <image class="good_image" src="https://img.alicdn.com/imgextra/i3/2210072440085/O1CN01H1PGOH1CUyJpFRcmY_!!2210072440085.jpg" mode="widthFix"></image>
+            <image class="good_image" src="{{goodsinfo.swiperimage[0]}}" mode="widthFix"></image>
         </view>
         <view class="c_r">
-            <view class="price">￥6666</view>
-            <view class="title">顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶</view>
+            <view class="price">￥{{goodsinfo.price}}</view>
+            <view class="title">{{goodsinfo.name}}</view>
         </view>
     </view>
     <view class="numtool">
-        <view class="numtooltitle">购买数量</view>
+        <view class="numtooltitle">选择数量</view>
         <view class="tool_r">
-            <view class="control {{plusBan}}" bindtap='plus'>+</view>
-            <view class="control num">55</view>
-            <view class="control {{minusBan}}" bindtap='minus'>-</view>
+            <view class="control {{plusBan}}" data-num="{{1}}" bindtap='aonum'>+</view>
+            <view class="control num">{{goodsnum}}</view>
+            <view class="control {{propBan}}" data-num="{{-1}}" bindtap='aonum'>-</view>
         </view>
     </view>
     <view class="confirm" wx:if="{{addorbuy}}">加入购物车</view>

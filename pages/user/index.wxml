@@ -1,1 +1,17 @@
-<button bindtap="aaa">7777</button>
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Slideview</view>
+        <view class="page__desc">左滑操作</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells">
+            <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+                <mp-cell>
+                    <view slot="">
+                        <image src="../../icon/cart-o.png" />
+                    </view>
+                </mp-cell>
+            </mp-slideview>
+        </view>
+    </view>
+</view>
