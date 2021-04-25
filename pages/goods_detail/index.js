@@ -428,6 +428,7 @@ Page({
           price: this.data.goodsinfo.price,
           num: this.data.goodsnum,
           select: true,
+          pic: this.data.goodsinfo.swiperimage[0],
         },
       ];
       const adddata = {
@@ -454,6 +455,7 @@ Page({
           price: this.data.goodsinfo.price,
           num: this.data.goodsnum,
           select: true,
+          pic: this.data.goodsinfo.swiperimage[0],
         };
         ///B种传值
         data = {

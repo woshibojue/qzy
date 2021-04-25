@@ -29,6 +29,11 @@
           "pathName": "pages/search/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/cart/index",
+          "pathName": "pages/cart/index",
+          "scene": null
         }
       ]
     }
