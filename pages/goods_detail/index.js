@@ -1,11 +1,10 @@
 // pages/goods_detail/index.js
+import { databaseadd, databaseupdate } from "../../asny/asny.js";
 import {
-  getUserProfile,
-  databaseadd,
-  callFunction,
-  databasewhere,
-} from "../../asny/asny.js";
-import { checkidandgets, togetUserProfile } from "../../utils/ut.js";
+  checkidandgets,
+  togetUserProfile,
+  checkcartinfoandgets,
+} from "../../utils/ut.js";
 
 Page({
   /**
@@ -265,9 +264,9 @@ Page({
     goodsnum: 1, //要购买商品数量
     error: "", //错误提示
     propBan: "ban",
-    goodsinfo: {},
+    goodsinfo: {}, //商品信息
   },
-  catr: [], //购物车数组
+
   goodsid: "", //商品id
   userid: false, //用户是否存在
   /**
@@ -361,7 +360,7 @@ Page({
     //构造要预览的数组 urls
     const previewImageurl = this.data.goodsinfo.swiperimage.map((v) => v);
     // console.log(e.currentTarget.dataset.index);
-    // console.log(previewImageurl)
+    //console.log(previewImageurl);
     // 获取当前显示图片的http链接;
     const cyrrent = e.currentTarget.dataset.index;
     console.log(cyrrent);
@@ -383,6 +382,86 @@ Page({
     });
   },
 
+  //上弹窗口确认加入购物车 此时用户已授权 将数据
+  //111】获取购物车缓存？
+  //222】
+  //1存在缓存：判断现在货物是否已经在数组？a存在于缓存数组中则 修改数据库和缓存购物车num+this.data.goodsnum
+  //                                  b不存在于缓存数组中则 数据库和缓存中购物车数组加多一个 和对应num
+  //2不存在缓存      查询是否存在于数据库？a数据库存在购物车数组 修改对应num 缓存获取购物车数组
+  //                                    b数据库新增条目 缓存获取购物车数组
+  //333】最终重置this.data.goodsnum=1  修改数据库购物车数组则修改缓存中购物车数组
+  async addgoods() {
+    const res = await checkcartinfoandgets();
+    if (!res) {
+      //没有创建过购物车：数据库添加该用户的该商品信息
+      wx.showLoading({
+        title: "添加数据中",
+        mask: true,
+      });
+      console.log("缓存和数据库都没有购物车数组");
+      const cartdata = [
+        {
+          addtime: new Date(),
+          goodsid: this.goodsid,
+          goodsname: this.data.goodsinfo.name,
+          price: this.data.goodsinfo.price,
+          num: this.data.goodsnum,
+          select: true,
+        },
+      ];
+      const adddata = {
+        cart: cartdata,
+      };
+      //存入数据库
+      databaseadd({ collection: "cartinfo", adddata });
+    } else {
+      console.log("存在购物车数组");
+      let cart = wx.getStorageSync(`cart`) || [];
+      console.log(cart);
+      let cartindex = cart.findIndex((v) => v.goodsid === this.goodsid); //findIndex 不存在时cartindex=-1 存在时=所在位置
+      console.log("cartindex", cartindex);
+      const { _openid } = wx.getStorageSync("userid")[0]; //*
+      ///A种传值
+      const wherecondition = { _openid: _openid };
+      let data;
+      if (cartindex === -1) {
+        //没有加入购物车过 不存在
+        const updatedata = {
+          addtime: new Date(),
+          goodsid: this.goodsid,
+          goodsname: this.data.goodsinfo.name,
+          price: this.data.goodsinfo.price,
+          num: this.data.goodsnum,
+          select: true,
+        };
+        ///B种传值
+        data = {
+          cart: wx.cloud.database().command.push([updatedata]),
+        };
+        cart.push(updatedata);
+      } else {
+        console.log("商品已经存在于购物车数组，仅需修改数字");
+        //存在于购物车 执行数量num++
+        cart[cartindex].num += this.data.goodsnum;
+        //更新cart数组下标为cartindex的num属性的值
+        data = {
+          ["cart." + cartindex + ".num"]: cart[cartindex].num,
+        };
+      }
+      //数据库更新且缓存更新
+      databaseupdate({ collection: "cartinfo", wherecondition, data });
+      wx.setStorageSync("cart", cart);
+    }
+
+    wx.hideLoading();
+    this.hiddenSel();
+    //TODO  成功加入购物车后的提示
+    wx.showToast({
+      title: "加入成功",
+      icon: "success",
+      mask: true,
+    });
+  },
   /**
    * 生命周期函数--监听页面显示
    */

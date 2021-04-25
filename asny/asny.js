@@ -62,6 +62,38 @@ export const databaseadd = ({ collection, adddata }) => {
 };
 ///////////////////////////
 /**
+ *@method wx.cloud.database().collection().update()
+ *@author 作者
+ *@version 版本号
+ *@param {string} collection 需要操作的数据表
+ *@param {object} data 添加的数据
+ *@return {类型} 无
+ */
+export const databaseupdate = ({ collection, wherecondition, data }) => {
+  return new Promise((resolve, reject) => {
+    wx.cloud
+      .database()
+      .collection(collection)
+      .where(wherecondition)
+      .update({
+        data,
+        success: (res) => {
+          console.log("数据push更新成功");
+          resolve(res);
+          console.log(res);
+        },
+        fail: (err) => {
+          reject(err);
+        },
+        complete: () => {
+          console.log("promise 形式  update(push)");
+          console.log("-------");
+        },
+      });
+  });
+};
+///////////////////////////
+/**
  *@method wx.cloud.callFunction
  *@param {pamas0} pamas0 调用云函数名
  *@return {类型} 无

@@ -13,7 +13,7 @@ import {
  */
 export const checkidandgets = async () => {
   wx.showLoading({
-    title: "载入中",
+    title: "载入基础数据",
     mask: true,
   });
   let res = wx.getStorageSync("userid"); //读取缓存中的用户
@@ -42,6 +42,45 @@ export const checkidandgets = async () => {
     }
   } else {
     console.log("userid存在缓存", res);
+    wx.hideLoading(); //消除加载框
+    return true;
+  }
+};
+
+//检查购物车数组是否存在
+//@@return ture 则购物车存在 于数据库 也存在于缓存
+//@@return flase 则购物车既不存在于数据库又不存在于缓存
+/////////////////////////////
+export const checkcartinfoandgets = async () => {
+  wx.showLoading({
+    title: "载入购物车",
+    mask: true,
+  });
+  let cart = wx.getStorageSync(`cart`) || [];
+  if (!cart.length) {
+    //购物车数组长度为0则读取数据库
+    //根据id查询是否存在数据库
+    console.log("购物车不存在于缓存");
+    await checkidandgets();
+    const { _openid } = wx.getStorageSync("userid")[0];
+    console.log("_openid", _openid);
+    const condition = { _openid: _openid }; //查询条件
+    //查询数据库
+    let { data } = await databasewhere({ collection: "cartinfo", condition });
+    console.log("cartinfo", data);
+    console.log(data.length);
+    if (!data.length) {
+      console.log("缓存和数据库都没有购物车数组");
+      wx.hideLoading(); //消除加载框
+      return false;
+    } else {
+      console.log("购物车数组不存在于缓存，存在于数据库");
+      wx.setStorageSync("cart", data[0].cart) || [];
+      wx.hideLoading(); //消除加载框
+      return true;
+    }
+  } else {
+    console.log("购物车数组存在于缓存", cart);
     wx.hideLoading(); //消除加载框
     return true;
   }

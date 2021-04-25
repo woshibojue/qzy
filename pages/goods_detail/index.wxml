@@ -1,4 +1,4 @@
-<!-- 测试 -->
+<!-- 测试
 <view class="page">
     <view class="page__hd">
         <view class="page__title">Badge</view>
@@ -34,7 +34,7 @@
             </mp-cell>
         </mp-cells>
     </view>
-</view>
+</view> -->
 <!-- 模糊的背景 开始 -->
 <view class="mark" hidden='{{selHidden}}' bindtap='hiddenSel'></view>
 <!-- 顶部错误提示栏开始 -->
@@ -101,6 +101,6 @@
             <view class="control {{propBan}}" data-num="{{-1}}" bindtap='aonum'>-</view>
         </view>
     </view>
-    <view class="confirm" wx:if="{{addorbuy}}">加入购物车</view>
+    <view class="confirm" wx:if="{{addorbuy}}" bindtap='addgoods'>加入购物车</view>
     <view class="confirm" wx:else>立即购买</view>
 </view>
