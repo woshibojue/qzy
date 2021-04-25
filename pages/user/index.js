@@ -1,3 +1,5 @@
+import { cUidAndCart } from "../../utils/ut.js";
+
 Page({
   onLoad: function () {
     this.setData({
@@ -23,5 +25,8 @@ Page({
   },
   slideButtonTap(e) {
     console.log("slide button tap", e.detail);
+  },
+  onShow: function () {
+    cUidAndCart();
   },
 });

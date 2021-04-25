@@ -76,7 +76,9 @@
         <view class="iconfont icon-che"></view>
         <view class="c">
             购物车
-            <mp-badge class="cartbadge" content="8" />
+            <block wx:if="{{mpbadge}}">
+                <mp-badge class="cartbadge" content="{{carttotalnum}}" />
+            </block>
         </view>
     </navigator>
     <view class="toolitem btn_car" bindtap="addcat">加入购物车</view>

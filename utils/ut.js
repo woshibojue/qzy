@@ -116,8 +116,7 @@ export const togetUserProfile = async () => {
 };
 
 //设置tabbar购物车位置角标
-export const tabbartsetbadge = () => {
-  let cartNum = 1;
+export const tabbartsetbadge = (cartNum) => {
   if (cartNum != 0) {
     //设置角标
     wx.setTabBarBadge({
@@ -129,5 +128,22 @@ export const tabbartsetbadge = () => {
     wx.removeTabBarBadge({
       index: 2,
     });
+  }
+};
+//tabbar页面载入时判断用户是否存在、购物车数组是否存在
+export const cUidAndCart = async () => {
+  let userid = await checkidandgets();
+  if (userid) {
+    //用户授权过
+    let cartid = await checkcartinfoandgets();
+    if (cartid) {
+      //加入过购物车
+      let cart = wx.getStorageSync(`cart`) || [];
+      let totalnum = 0;
+      cart.forEach((v) => {
+        totalnum += v.num;
+      });
+      tabbartsetbadge(totalnum);
+    }
   }
 };

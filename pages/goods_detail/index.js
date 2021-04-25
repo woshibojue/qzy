@@ -265,6 +265,8 @@ Page({
     error: "", //错误提示
     propBan: "ban",
     goodsinfo: {}, //商品信息
+    mpbadge: false, //购物车角标初始为不显示
+    carttotalnum: 0, //购物车物品总数
   },
 
   goodsid: "", //商品id
@@ -315,6 +317,24 @@ Page({
     });
     this.goodsid = options.goodsid;
     this.userid = await checkidandgets();
+    this.smbp();
+  },
+  //设置购物车角标
+  async smbp() {
+    let cartid = await checkcartinfoandgets();
+    if (cartid) {
+      //加入过购物车
+      let cart = wx.getStorageSync(`cart`) || [];
+      let carttotalnum = 0;
+      let mpbadge = false;
+      cart.forEach((v) => {
+        carttotalnum += v.num;
+      });
+      if (carttotalnum) {
+        mpbadge = true;
+      }
+      this.setData({ carttotalnum, mpbadge });
+    }
   },
   aonum(e) {
     //选择数量
@@ -452,10 +472,10 @@ Page({
       databaseupdate({ collection: "cartinfo", wherecondition, data });
       wx.setStorageSync("cart", cart);
     }
-
+    this.smbp();
     wx.hideLoading();
     this.hiddenSel();
-    //TODO  成功加入购物车后的提示
+
     wx.showToast({
       title: "加入成功",
       icon: "success",
@@ -493,7 +513,7 @@ Page({
   onShareAppMessage: function () {},
 
   //点击加入购物车触发事件
-  //todo  用户是否登录？1是则继续  2否则要求登录
+  //  用户是否登录？1是则继续  2否则要求登录
   //已登录 触发上弹窗口动画 选择数目
   async addcat() {
     if (this.userid) {
