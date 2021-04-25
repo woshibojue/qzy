@@ -87,6 +87,7 @@ Page({
     "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01cF92A81CUyJzIJwvq_!!2210072440085.jpg",
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01AxHvTW1CUyJv25OFC_!!2210072440085.jpg",
     "https://img.alicdn.com/imgextra/i4/2210072440085/O1CN01LEAHyV1CUyK0QRe0O_!!2210072440085.jpg",
+    "https://img.alicdn.com/imgextra/i2/2210072440085/O1CN01IFlA9R1CUyJxFNAXf_!!2210072440085.jpg",
   ],
   qzymby: [
     "https://img.alicdn.com/imgextra/i1/2210072440085/O1CN01R7dEVE1CUyJvlCnRD_!!2210072440085.jpg",

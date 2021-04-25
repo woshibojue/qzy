@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/cart/index",
     "pages/user/index",
-    "pages/search/index",
     "pages/goods_detail/index" 
   ],
   "window":{

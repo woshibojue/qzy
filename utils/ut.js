@@ -12,12 +12,12 @@ import {
  *@param： 1缓存userid{string} 2查询条件condition{object}
  */
 export const checkidandgets = async () => {
-  wx.showLoading({
-    title: "载入基础数据",
-    mask: true,
-  });
   let res = wx.getStorageSync("userid"); //读取缓存中的用户
   if (!res) {
+    wx.showLoading({
+      title: "载入基础数据",
+      mask: true,
+    });
     //没有id
     console.log("没有id缓存"); //无缓存则获取 1获取用户id 2查询是否存在数据库
     //this.checkid();
@@ -52,12 +52,12 @@ export const checkidandgets = async () => {
 //@@return flase 则购物车既不存在于数据库又不存在于缓存
 /////////////////////////////
 export const checkcartinfoandgets = async () => {
-  wx.showLoading({
-    title: "载入购物车",
-    mask: true,
-  });
   let cart = wx.getStorageSync(`cart`) || [];
   if (!cart.length) {
+    wx.showLoading({
+      title: "载入购物车",
+      mask: true,
+    });
     //购物车数组长度为0则读取数据库
     //根据id查询是否存在数据库
     console.log("购物车不存在于缓存");
