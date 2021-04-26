@@ -31,6 +31,26 @@ export const getUserProfile = () => {
 };
 ///////////////////////////
 /**
+ *  promise 形式   wx.chooseAddress
+ * 无 参数
+ */
+export const tochooseAddress = () => {
+  return new Promise((resolve, reject) => {
+    wx.chooseAddress({
+      success: (res) => {
+        resolve(res);
+        console.log("获取地址成功");
+      },
+      fail: (err) => {
+        reject(err);
+        console.log("获取地址失败");
+      },
+      complete: () => {},
+    });
+  });
+};
+///////////////////////////
+/**
  *@method wx.cloud.database().collection().add()
  *@author 作者
  *@version 版本号
