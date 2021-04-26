@@ -33,6 +33,12 @@
         {
           "name": "pages/cart/index",
           "pathName": "pages/cart/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "scene": null
         }
       ]

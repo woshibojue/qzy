@@ -86,16 +86,10 @@ page {
   height: 100%;
   opacity: 0;
 }
-.toolbar .toolitem .c {
-  font-size: 23rpx;
-}
 .toolbar .toolitem .c .cartbadge {
   position: absolute;
   top: -0.01em;
   right: -0.01em;
-}
-.toolbar .toolitem .v .icart {
-  width: 40rpx;
 }
 .toolbar .btn_car {
   flex: 2;
