@@ -5,7 +5,7 @@
 <!-- 背景结束 -->
 <!-- 轮播图开始 -->
 <view class="goods_swiper">
-    <swiper indicator-dots autoplay circular interval="2000">
+    <swiper indicator-dots autoplay circular interval="3000">
         <swiper-item wx:for="{{goodsinfo.swiperimage}}" wx:key="*this" bindtap="handlpreviewImage" data-index="{{item}}">
             <image mode="widthFix" src="{{item}}" />
         </swiper-item>

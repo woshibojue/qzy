@@ -126,7 +126,7 @@ export const tabbartsetbadge = (cartNum) => {
   } else {
     //移除角标
     wx.removeTabBarBadge({
-      index: 2,
+      index: 1,
     });
   }
 };

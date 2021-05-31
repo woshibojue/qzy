@@ -6,11 +6,9 @@
     <view class="page__bd">
         <view class="weui-cells">
             <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-                <mp-cell>
-                    <view slot="">
-                        <image src="../../icon/cart-o.png" />
-                    </view>
-                </mp-cell>
+                <view slot="">
+                    <image src="../../icon/cart-o.png" />
+                </view>
             </mp-slideview>
         </view>
     </view>

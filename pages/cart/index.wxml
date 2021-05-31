@@ -1,0 +1,67 @@
+<!-- 顶部错误提示栏开始 -->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="e" wx:if="{{!cartlength}}">
+    <view class="empty">
+        <image class="emptyimage" src="../../icon/3993859-128.png" mode="widthFix"></image>
+    </view>
+    <view class="emptytext">购物车竟然是空的~</view>
+</view>
+<view class="noempty" wx:else>
+    <navigator url="../index/index" hover-class="navigator-hover" open-type="switchTab">
+        <view class="alltitle">
+            沁滋源
+            <mp-icon size="{{9}}" class="arrow" type="field" icon="arrow" color="gray"></mp-icon>
+        </view>
+    </navigator>
+    <!-- 存在于购物车数组的模块 -->
+    <view class="cartall">
+        <view class="cart" wx:for="{{cart}}" wx:key="goodsid">
+            <mp-slideview class="slideview" buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-id="{{item.goodsid}}">
+                <view class="mp">
+                    <label>
+                        <checkbox-group bindchange="handleccboxChange" class="ccbox" data-id="{{item.goodsid}}">
+                            <checkbox checked="{{item.select}}" class="tui"></checkbox>
+                        </checkbox-group>
+                    </label>
+                    <view class="cimage">
+                        <navigator class="nimage" hover-class="none" open-type="navigate" url="../goods_detail/index?goodsid={{item.goodsid}}">
+                            <image class="ccimg" src="{{item.pic}}" mode="widthFix" />
+                        </navigator>
+                    </view>
+                    <!--  -->
+                    <view class="goods_content">
+                        <view class="goods_title">{{item.goodsname}}</view>
+                        <view class="goods_tool_price">
+                            <view class="price">￥{{item.price}}</view>
+                            <view class="tool_r">
+                                <view class="control a{{item.num}}" bindtap="goodsnumedit" data-num="{{-1}}" data-id="{{item.goodsid}}">
+                                    -
+                                </view>
+                                <view class="control num">{{item.num}}</view>
+                                <view class="control" bindtap="goodsnumedit" data-num="{{1}}" data-id="{{item.goodsid}}">
+                                    +
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <!--  -->
+                </view>
+            </mp-slideview>
+        </view>
+    </view>
+    <!-- 底部合计浮动 -->
+    <view class="Settlement">
+        <view class="Settlement_cview">
+            <checkbox-group class="Settlementbox" bindchange="allcheckedchange" data-isallselect="{{allselect}}">
+                <checkbox class="ttui" checked="{{allselect}}">全选</checkbox>
+            </checkbox-group>
+        </view>
+        <!-- 合计 运费 -->
+        <view class="total_price">
+            合计:
+            <text class="total_price_text">￥{{totalprice}}</text>
+        </view>
+        <!-- 结算 -->
+        <view class="order_pay_wrap a{{totalnum}}" bindtap="topay">结算({{totalnum}})</view>
+    </view>
+</view>

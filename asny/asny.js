@@ -98,7 +98,7 @@ export const databaseupdate = ({ collection, wherecondition, data }) => {
       .update({
         data,
         success: (res) => {
-          console.log("数据push更新成功");
+          console.log("数据更新成功");
           resolve(res);
           console.log(res);
         },
@@ -106,7 +106,7 @@ export const databaseupdate = ({ collection, wherecondition, data }) => {
           reject(err);
         },
         complete: () => {
-          console.log("promise 形式  update(push)");
+          console.log("promise 形式  update()");
           console.log("-------");
         },
       });

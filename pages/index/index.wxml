@@ -13,7 +13,7 @@
     mode属性 渲染模式
     widthFix 让图片的标签宽高 和 图片标签的内容的宽高都等比例的发生变化 -->
 <view class="index_swiper">
-    <swiper indicator-dots autoplay circular interval="2000">
+    <swiper indicator-dots autoplay circular interval="3000">
         <swiper-item wx:for="{{swipergoods}}" wx:key="id">
             <navigator class="" target="" url="/pages/goods_detail/index?goodsid={{item.id}}" hover-class="navigator-hover" open-type="navigate">
                 <image mode="widthFix" src="{{item.image}}" />

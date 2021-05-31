@@ -1,5 +1,12 @@
 {
   "usingComponents": {
-    
-  }
+    "mp-slideview": "weui-miniprogram/slideview/slideview",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "mp-checkbox-group": "weui-miniprogram/checkbox-group/checkbox-group",
+    "mp-checkbox": "weui-miniprogram/checkbox/checkbox",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-toptips": "weui-miniprogram/toptips/toptips"
+  },
+  "navigationBarTitleText":"购物车"
 }
